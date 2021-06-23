@@ -5,7 +5,6 @@ class Comment extends Model { }
 
 Comment.init(
     {
-        // columns will go here
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -14,6 +13,7 @@ Comment.init(
         },
         comment_text: {
             type: DataTypes.STRING,
+            allowNull: false,
             validate: {
                 len: [1]
             }
@@ -27,7 +27,6 @@ Comment.init(
         },
         post_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'post',
                 key: 'id'
@@ -40,7 +39,6 @@ Comment.init(
         underscored: true,
         modelName: 'comment'
     }
-
 );
 
 module.exports = Comment;
